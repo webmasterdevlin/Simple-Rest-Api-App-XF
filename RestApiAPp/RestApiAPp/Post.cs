@@ -15,13 +15,11 @@ namespace RestApiAPp
             set
             {
                 _title = value;
-                OnPropertyChanged();
+                OnPropertyChanged(); //This notifies the View or ViewModel that the value that a property in the Model has changed and the View needs to be updated.
             }
         }
 
-        public string Body { get; set; }
-
-
+        //This is how you create your OnPropertyChanged() method
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
