@@ -3,11 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
-using Xamarin.Forms;
 
 namespace RestApiAPp
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage
     {
         private const string Url = "http://jsonplaceholder.typicode.com/posts"; //This url is a free public api intended for demos
         private readonly HttpClient _client = new HttpClient(); //Creating a new instance of HttpClient. (Microsoft.Net.Http)
@@ -20,6 +19,7 @@ namespace RestApiAPp
         {
             InitializeComponent();
         }
+        /// <inheritdoc />
         /// <summary>
         /// This method gets called before the UI appears.
         /// Async and await to get the value of the Task and for user experience
