@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Newtonsoft.Json;
 using RestApiAPp.Annotations;
 
 namespace RestApiAPp
@@ -9,6 +10,8 @@ namespace RestApiAPp
         public int Id { get; set; }
 
         private string _title;
+
+        [JsonProperty("title")] //This maps the element title of your web service to your model
         public string Title
         {
             get => _title;
