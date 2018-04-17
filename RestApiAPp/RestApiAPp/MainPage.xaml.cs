@@ -42,7 +42,7 @@ namespace RestApiAPp
         {
             Post post = new Post { Title = $"Title: Timestamp {DateTime.UtcNow.Ticks}" }; //Creating a new instane of Post with a Title Property and its value in a Timestamp format
             string content = JsonConvert.SerializeObject(post); //Serializes or convert the created Post into a JSON String
-            await _client.PostAsync(Url, new StringContent(content)); //Send a POST request to the specified Uri as an asynchronous operation.
+            await _client.PostAsync(Url, new StringContent(content, Encoding.UTF8, "application/json")); //Send a POST request to the specified Uri as an asynchronous operation.
             _posts.Insert(0, post); //Updating the UI by inserting an element into the first index of the collection 
         }
 
@@ -56,7 +56,7 @@ namespace RestApiAPp
             Post post = _posts[0]; //Assigning the first Post object of the Post Collection to a new instance of Post
             post.Title += " [updated]"; //Appending an [updated] string to the current value of the Title property
             string content = JsonConvert.SerializeObject(post); //Serializes or convert the created Post into a JSON String
-            await _client.PutAsync(Url + "/" + post.Id, new StringContent(content)); //Send a PUT request to the specified Uri as an asynchronous operation.
+            await _client.PutAsync(Url + "/" + post.Id, new StringContent(content, Encoding.UTF8, "application/json")); //Send a PUT request to the specified Uri as an asynchronous operation.
         }
 
         /// <summary>
